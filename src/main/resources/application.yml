@@ -10,9 +10,9 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
   datasource:
-    username: ${DB_USER:root}
-    password: ${DB_PASS:root}
-    url: ${DB_URL:jdbc:mysql://192.168.110.10:3306/flz_chat?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}
+    username: ${DB_USER:}
+    password: ${DB_PASS:}
+    url: ${DB_URL:}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       max-lifetime: 500000
@@ -20,14 +20,14 @@ spring:
   jackson:
     time-zone: Asia/Shanghai
   redis:
-    host: ${REDIS_HOST:192.168.110.10}
-    port: ${REDIS_PORT:6379}
-    password: ${REDIS_PASSWORD:flz10243145}
+    host: ${REDIS_HOST:}
+    port: ${REDIS_PORT:}
+    password: ${REDIS_PASSWORD:}
   rabbitmq:
-    host: ${RABBIT_HOST:192.168.110.10}
-    port: ${RABBIT_PORT:5672}
-    username: ${RABBIT_USER:root}
-    password: ${RABBIT_PASS:root}
+    host: ${RABBIT_HOST:}
+    port: ${RABBIT_PORT:}
+    username: ${RABBIT_USER:}
+    password: ${RABBIT_PASS:}
     virtual-host: ${RABBIT_VHOST:/}
     listener:
       simple:
@@ -37,10 +37,10 @@ spring:
           enabled: true
           max-attempts: 3
   mail:
-    host: ${MAIL_HOST:smtp.163.com}
-    port: ${MAIL_PORT:465}
-    username: ${MAIL_USER:15818859598@163.com}
-    password: ${MAIL_PASS:PExju3BH7d3N5mtS}
+    host: ${MAIL_HOST:}
+    port: ${MAIL_PORT:}
+    username: ${MAIL_USER:}
+    password: ${MAIL_PASS:}
     protocol: smtp
     properties:
       mail.smtp.auth: true
@@ -49,21 +49,19 @@ spring:
 jwt:
   header: Authorization
   tokenPrefix: "Bearer "
-  secret: ${JWT_SECRET:flz200310240813200206103145}
+  secret: ${JWT_SECRET:}
   expireTime: 86400000
   refreshExpireTime: 604800000
   issuer: flz_business
 
 minio:
-  endpoint: ${MINIO_ENDPOINT:http://192.168.110.10:9000}
-#  access-key: ${MINIO_AK:15XCdK0Epg1n4smUrIwp}
-  access-key: ${MINIO_AK:flz}
-#  secret-key: ${MINIO_SK:3ds8TKF56SzG2o0C6dgQOMNUL9oJfHGrz7mnV7Ng}
-  secret-key: ${MINIO_SK:flz10243145}
-  bucket-public: ${MINIO_BUCKET_PUBLIC:flz-chat-public}
-  bucket-chat: ${MINIO_BUCKET_CHAT:flz-chat-media}
-  presigned-expiry-days: ${MINIO_PRESIGNED_DAYS:90}
-  public-base-url: ${MINIO_PUBLIC_BASE_URL:http://192.168.110.10:9000}
+  endpoint: ${MINIO_ENDPOINT:}
+  access-key: ${MINIO_AK:}
+  secret-key: ${MINIO_SK:}
+  bucket-public: ${MINIO_BUCKET_PUBLIC:}
+  bucket-chat: ${MINIO_BUCKET_CHAT:}
+  presigned-expiry-days: ${MINIO_PRESIGNED_DAYS:}
+  public-base-url: ${MINIO_PUBLIC_BASE_URL:}
 
 security:
   login:
@@ -76,7 +74,7 @@ security:
 
 message:
   filter:
-    enabled: ${MESSAGE_FILTER_ENABLED:false}
+    enabled: ${MESSAGE_FILTER_ENABLED:}
     sensitive-words:
       - 涉黄
       - 诈骗
